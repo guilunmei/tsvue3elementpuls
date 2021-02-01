@@ -5,7 +5,7 @@
 </template>
 
 <style>
-#app,
+#nav,
 html,
 body {
   width: 100%;
