@@ -3,9 +3,8 @@
     <!-- form表单容器 -->
     <div class="forms-container">
       <div class="signin-signup">
-        <LoginForm/>
-         <RegisterForm
-        />
+        <LoginForm :signUpMode='signUpMode' />
+        <RegisterForm :signUpMode='signUpMode' />
       </div>
     </div>
     <!-- 左右切换动画 -->
@@ -14,7 +13,13 @@
         <div class="content">
           <h3>学习是为了有更多的选择,让生活变的更美好!</h3>
           <p>何以解忧,唯有米修</p>
-          <button round @click="signUpMode = !signUpMode" class="btn transparent">注册</button>
+          <button
+            round
+            @click="signUpMode = !signUpMode"
+            class="btn transparent"
+          >
+            注册
+          </button>
         </div>
         <img src="@/assets/img/log.svg" class="image" alt="" />
       </div>
@@ -32,32 +37,22 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, getCurrentInstance } from "vue";
-// import { loginUser, rules } from "@/utils/loginValidators";
-// import { registerUser, registerRules } from "@/utils/registerValidators";
-import LoginForm from "@/components/LoginForm.vue";
-// import RegisterForm from "@/components/RegisterForm.vue";
+import { ref, getCurrentInstance, reactive } from 'vue'
+import LoginForm from '@/components/LoginForm.vue'
+import RegisterForm from '@/components/RegisterForm.vue'
 export default {
-  name: "LoginRegister",
-  components: { LoginForm },
+  name: 'LoginRegister',
+  components: { LoginForm, RegisterForm },
   setup() {
     // @ts-ignore
-    const { ctx } = getCurrentInstance();
-    const signUpMode = ref<boolean>(false);
-
+    const { ctx } = getCurrentInstance()
+    const signUpMode = ref<boolean>(false)
     return {
-      signUpMode,
-    //   loginUser,
-    //   rules,
-    //   registerUser,
-    //   registerRules,
-    };
-  },
-};
+      signUpMode
+    }
+  }
+}
 </script>
-<!--<style lang='scss' scoped>
-    @import '@/common/loginRegister.scss';
-</style>-->
 <style lang='scss'>
-    @import '@/common/loginRegister.scss';
+@import '@/common/loginRegister.scss';
 </style>

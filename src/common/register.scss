@@ -1,0 +1,16 @@
+.sign-up-mode .registerForm{
+    opacity: 1;
+    left: 5%;
+}
+.registerForm{
+    position: absolute;
+    width: 600px;
+    left: -600px;
+    top: 6rem;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    z-index: 6;
+    .registerBtn{
+        width: 100%;
+    }
+}
